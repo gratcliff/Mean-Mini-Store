@@ -1,0 +1,11 @@
+{
+  "name": "Orders_Customers",
+  "version": "0.0.1",
+  "dependencies": {
+    "angular-moment": "^1.0.0-beta.5",
+    "body-parser": "latest",
+    "express": "~4.2.0",
+    "moment": "^2.13.0",
+    "mongoose": "latest"
+  }
+}

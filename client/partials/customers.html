@@ -1,0 +1,25 @@
+<div ng-controller = 'CustomerController'>
+	<h5> Add a new customer </h5>
+	<p style = 'color:Red' ng-bind = 'error'></p>
+	<form name='customerForm'>
+		Customer Name: <input name='nameField' required  minlength = '2' type = 'text' ng-model = "newCustomer.name" placeholder = 'Customer name...'></br>
+		<input type ='hidden' ng-model = 'newCustomer.created_at'>
+		<input type='submit' value='Add' ng-click = 'addCustomer()'></hr>
+		<div ng-messages = 'customerForm.nameField.$error' ng-show = "customerForm.nameField.$dirty" role='alert'>
+				<div style='color:maroon' ng-message ='minlength'>This field needs to be longer than 2 characters</div>
+			</div>
+	</form>
+	<input type ='text' ng-model = 'filter' placeholder = 'Search name...'>
+	<table>
+		<tr>
+			<th> Customer Name</th>
+			<th> Created Date </th>
+			<th> Actions </th>
+		</tr>
+		<tr ng-repeat = 'customer in customers | filter:filter | orderBy: created_at'>
+			<td ng-bind = 'customer.name'></td>
+			<td ng-bind = 'customer.created_at | date: "MMMM dd y"'></td>
+			<td><button ng-click = 'removeCustomer(customer)'>Remove </button></td>
+		</tr>
+	</table>
+</div> 
